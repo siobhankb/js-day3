@@ -161,12 +161,12 @@ console.log(stepByFive()); console.log(stepByFive()); console.log(stepByFive());
 // array starts as empty array
 // adds users to the list every time the function is called
 
-let userArray = (function addUser(nameArray) {
+let userArray1 = (function addUser(nameArray) {
     let users = [];
     let dex = 0;
-    // console.log(`dex is ${dex}`);
+    console.log(`inner dex is ${dex}`);
     function inner() {
-        // console.log(`inner dex is ${dex}`);
+        console.log(`inner dex is ${dex}`);
         users.push(nameArray[dex])
         dex += 1;
         return users
@@ -174,5 +174,29 @@ let userArray = (function addUser(nameArray) {
     return inner
 })(['Ada Lovelace', 'Grace Hopper', 'Edith Clark', 'Evelyn Boyd Granville', 'Sister Mary Kenneth Keller', 'Radia Perlman'])
 
-console.log(userArray());  console.log(userArray()); console.log(userArray()); 
+console.log(userArray1());
+console.log(userArray1()); 
+console.log(userArray1());
+console.log(userArray1()); 
+console.log(userArray1());
+console.log(userArray1()); 
+
+
+console.log(
+  "=======================================================================");
+// ****** this one allows user to 
+// create an IIFE that has a hidden array of names
+// array starts as empty array
+// adds users to the list every time the function is called
+
+let userArray = (function addUser() {
+    let users = [];
+    function inner(name) {
+        users.push(name)
+        return users
+    }
+    return inner
+})()
+
+console.log(userArray("1. Ada Lovelace")); console.log(userArray("2. Grace Hopper")); console.log(userArray("3. Edith Clark")); 
 
