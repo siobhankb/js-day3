@@ -16,6 +16,12 @@ let addEightWithClosure = (function createAdder() {
     return inner
 })();
 
+//Julian's solution:
+function julianCreateAdde(x) {
+    function adder(y) {
+        return x + y
+    }
+}
 
 // const addEight = createAdder(8);
 console.log(addEightWithClosure(10)); // 18
@@ -51,6 +57,8 @@ console.log(addThreeWithClosure(92)); // 95
 // Using the below getMovieInfo function, which is a Promised-base function, write an asynchronous function (.then().catch() or async/await)
 // called printMovieInfo that will take in a movie title and then either displays the movie information or logs an error with a console.warn().
 
+
+
 function getMovieInfo(movieName) {
   return new Promise((resolve, reject) => {
     if (movieName.length > 5) {
@@ -68,23 +76,6 @@ function getMovieInfo(movieName) {
   });
 }
 
-// so we use 'async' -->
-async function printMovieInfo(movieName) {
-  try {
-    let movieId = await getMovieId(movieId);
-    let director = await getMovieDirector(director);
-      let runtime = await getMovieRuntime(runtime);
-      let description = await getMovieDescr(description);
-      console.log(`${movieName} directed by ${director}`);
-      console.log(`A ${film} that runs for ${runtime}`)
-  } catch (err) {
-    console.warn(err);
-  }
-}
-
-printMovieInfo(123);
-
-
 // Example 1
 // printMovieInfo('Indiana Jones and the Dark Knight')
 // Output: Indiana Jones and the Dark Knight directed by Christopher Spielberg. A story of Good vs Evil that runs for 157 minutes.
@@ -93,3 +84,27 @@ printMovieInfo(123);
 // printMovieInfo('ET')
 // Output: *Warning* ET cannot be accessed because it it too short
 
+// use 'async' -->
+async function printMovieInfo(movieName) {
+  try {
+    let movie = await getMovieInfo(movieName);
+      console.log(`${movieName} directed by ${movie.director}`);
+      console.log(`A ${movie.description} film that runs for ${movie.runtime}`)
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
+printMovieInfo('Hairspray');
+
+
+
+//Julian's answer
+async function printMovieInfo(movieName) {
+    try {
+        let movie = await getMovieInfo(movieName)
+        console.log(`${movie.title} directed by ${movie.director}. A story of ${movie.description} that runs for ${movie.runtime}`)
+    } catch (err) {
+        console.warn(err)
+    }
+};
