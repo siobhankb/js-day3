@@ -3,6 +3,8 @@
 // the below code works as intended
 
 // function createAdder(){};
+//Julian's solution:
+
 
 // const addEight = createAdder(8);
 // console.log(addEight(10)); // 18
@@ -49,3 +51,5 @@ function getMovieInfo(movieName){
 // Example 2
 // printMovieInfo('ET')
 // Output: *Warning* ET cannot be accessed because it it too short
+
+

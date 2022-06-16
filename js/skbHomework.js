@@ -16,12 +16,6 @@ let addEightWithClosure = (function createAdder() {
     return inner
 })();
 
-//Julian's solution:
-function julianCreateAdde(x) {
-    function adder(y) {
-        return x + y
-    }
-}
 
 // const addEight = createAdder(8);
 console.log(addEightWithClosure(10)); // 18
@@ -99,12 +93,3 @@ printMovieInfo('Hairspray');
 
 
 
-//Julian's answer
-async function printMovieInfo(movieName) {
-    try {
-        let movie = await getMovieInfo(movieName)
-        console.log(`${movie.title} directed by ${movie.director}. A story of ${movie.description} that runs for ${movie.runtime}`)
-    } catch (err) {
-        console.warn(err)
-    }
-};
