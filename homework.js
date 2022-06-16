@@ -4,7 +4,11 @@
 
 // function createAdder(){};
 //Julian's solution:
-
+function julianCreateAdde(x) {
+    function adder(y) {
+        return x + y
+    }
+}
 
 // const addEight = createAdder(8);
 // console.log(addEight(10)); // 18
@@ -53,3 +57,13 @@ function getMovieInfo(movieName){
 // Output: *Warning* ET cannot be accessed because it it too short
 
 
+
+//Julian's answer
+async function printMovieInfo(movieName) {
+    try {
+        let movie = await getMovieInfo(movieName)
+        console.log(`${movie.title} directed by ${movie.director}. A story of ${movie.description} that runs for ${movie.runtime}`)
+    } catch (err) {
+        console.warn(err)
+    }
+};
